@@ -1,0 +1,134 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int numero_doces;
+    int evolui_um;
+    int evolui_dois;
+    int evolui_tres;
+    int resultado;
+
+    resultado = 0;
+
+    scanf("%d\n%d\n%d\n%d",&numero_doces,&evolui_um,&evolui_dois,&evolui_tres);
+
+    if(0 <= numero_doces && numero_doces <= 1000 && 1 <= evolui_um && evolui_um <= 1000
+            &&1 <= evolui_dois && evolui_dois <= 1000 && 1 <= evolui_tres && evolui_tres <= 1000)
+    {
+
+        if(numero_doces < evolui_um && numero_doces < evolui_dois && numero_doces < evolui_tres)
+        {
+            printf("%d",resultado);
+        }
+        else if(numero_doces >= evolui_um)
+        {
+            if(evolui_um > evolui_dois)
+            {
+                if(numero_doces >= evolui_dois && evolui_dois <= numero_doces)
+                {
+                    numero_doces -= evolui_dois;
+                    resultado += 1;
+                    if(evolui_tres > evolui_um && evolui_um <= numero_doces)
+                    {
+                        numero_doces  -= evolui_um;
+                        resultado += 1;
+                        printf("\n%d",resultado);
+                    }
+                    else
+                    {
+                    if(numero_doces >= evolui_tres)
+                    {
+                        numero_doces -= evolui_tres;
+                        resultado += 1;
+                        printf("\n%d",resultado);
+                    }
+                    else
+                    {
+                        printf("\n%d",resultado);
+                    }}
+                }
+                else
+                {
+                    if(numero_doces >= evolui_tres)
+                    {
+                        numero_doces -= evolui_tres;
+                        resultado += 1;
+                        printf("\n%d",resultado);
+                    }
+                    else
+                    {
+                        printf("%d",resultado);
+                    }
+                }
+            }
+            else
+            {
+                numero_doces -= evolui_um;
+                resultado += 1;
+
+                if(numero_doces >= evolui_dois)
+                {
+                    numero_doces -= evolui_dois;
+                    resultado += 1;
+
+                    if(numero_doces >= evolui_tres)
+                    {
+                        numero_doces -= evolui_tres;
+                        resultado += 1;
+                        printf("\n%d",resultado);
+                    }
+                    else
+                    {
+                        printf("\n%d",resultado);
+                    }
+                }
+                else
+                {
+                    if(numero_doces >= evolui_tres)
+                    {
+                        numero_doces -= evolui_tres;
+                        resultado += 1;
+                        printf("\n%d",resultado);
+                    }
+                    else
+                    {
+                        printf("%d",resultado);
+                    }
+                }
+            }
+        }
+        else
+        {
+            if(numero_doces >= evolui_dois)
+            {
+                numero_doces -= evolui_dois;
+                resultado += 1;
+
+                if(numero_doces >= evolui_tres)
+                {
+                    numero_doces -= evolui_tres;
+                    resultado += 1;
+                    printf("\n%d",resultado);
+                }
+                else
+                {
+                    printf("%d",resultado);
+                }
+            }
+            else
+            {
+                if(numero_doces >= evolui_tres)
+                {
+                    numero_doces -= evolui_tres;
+                    resultado += 1;
+                    printf("\n%d",resultado);
+                }
+            }
+
+        }
+
+    }
+
+    return 0;
+}
